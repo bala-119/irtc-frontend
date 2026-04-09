@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { api, USER_SERVICE_URL, NOTIFICATION_SERVICE_URL } from '../config/api';
 
@@ -37,17 +37,17 @@ const Profile = () => {
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [loading, setLoading] = useState<string | null>(null);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (user) {
             setProfileForm({
-                fullName: user.name || user.fullName || '',
+                fullName: user.fullName || '',
                 user_name: user.user_name || '',
                 email: user.email || ''
             });
         }
     }, [user]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const fetchProfile = async () => {
             setLoading('profile');
             try {
@@ -287,7 +287,7 @@ const Profile = () => {
                                     onChange={(e) => setProfileForm({...profileForm, fullName: e.target.value})}
                                 />
                             ) : (
-                                <p className="px-4 py-3 bg-white rounded-xl font-black text-slate-900 border border-slate-100">{user?.fullName || user?.name || '---'}</p>
+                                <p className="px-4 py-3 bg-white rounded-xl font-black text-slate-900 border border-slate-100">{user?.fullName || '---'}</p>
                             )}
                         </div>
                         <div className="space-y-1">

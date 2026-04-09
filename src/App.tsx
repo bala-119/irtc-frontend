@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { api, USER_SERVICE_URL } from './config/api';
@@ -36,7 +36,7 @@ function App() {
 
 
   return (
-    <Router>
+    <Router basename="/irtc-frontend">
       <Toaster position="top-right" />
       <Routes>
         <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../config/api';
 import { Ticket, Clock, CheckCircle, XCircle, CreditCard } from 'lucide-react';
 import { toast } from 'react-hot-toast';

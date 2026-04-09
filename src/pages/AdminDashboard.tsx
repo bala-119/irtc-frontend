@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { api, TRAIN_SERVICE_URL, BOOKING_SERVICE_URL } from '../config/api';
 import { toast } from 'react-hot-toast';
-import { Calendar, MapPin, Plus, Save, Upload, Loader2 } from 'lucide-react';
+import { Calendar, MapPin, Plus, Save, Upload } from 'lucide-react';
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState<'train' | 'schedule' | 'station'>('train');
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (activeTab === 'station') {
       fetchStations();
     }
